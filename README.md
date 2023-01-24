@@ -28,3 +28,5 @@ THEN the app tracks amount consumed for the day / week
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
+
+djsiaojdoisjad
