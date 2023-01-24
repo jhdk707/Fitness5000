@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./assets/style.css">
   <title>Text Processing</title>
-
-  <!-- Import our css styles -->
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>s
+  <div id= "searchbar">
+    <input type="text" class="input" id="searchinput" placeholder="Enter Activity"/>
+    <button class="btn" id="searchbutton">Search</button>
+</div>
+<div class= "card">
+    <div id= "output"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- Import axios library -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!-- Querystring library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.7.0/qs.min.js"></script>
 <!-- Import our javascript file -->
-<script src="script.js"></script>
+<script src="./assets/script.js"></script>
 </body>
+</html>
