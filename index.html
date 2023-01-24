@@ -9,33 +9,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.34/dayjs.min.js"></script>
     <title>Fitness</title>
 </head>
-
-<header class="title">Welcome to FITNESS 5000!!! 
+<header class="title">Welcome to FITNESS 5000!!!
   <h1 class="greeting">Hello, USERNAME <!--placeholder for username--></h1>
   <span class="userName"></span>
   <h2 class="currentDay"></h2>
 </header>
-
  <main>
-  <section class="activityContainer">
-    <div class="activityName"></div>
-    <div class="displayActivity"></div>
-    <div class="equipmentReq"></div>
-    <div class="activityDescription"></div>
-    <div class="muscleGroup"></div>
-    <div class="activityType"></div>
-  </section>
-  
+  <div id= "searchbar">
+    <input type="text" class="input" id="searchinput" placeholder="Enter Activity"/>
+    <button class="btn" id="searchbutton">Search</button>
+</div>
+<div class= "container" id= "output">
+</div>
   <form action="" id="form" onsubmit="sConsole(event)">
      <input type="text" name="calorieCounter" id="caloriesIntake">
      <button type="submit">Enter Calories</button>
   </form>
-
  </main>
- 
-
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- Import axios library -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
