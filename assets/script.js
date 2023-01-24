@@ -4,40 +4,22 @@ let activityinput = "";
 
 var finaloutput = $("#output");
 
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '396d65978cmsh536e29951248595p199c25jsn69e49935a220',
-		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
-	}
-};
+document.addEventListener("DOMContentLoaded", function () {
+  // Timer function to present local date and time in header
+  const currentDay = document.querySelector(".currentDay");
+  setInterval(() => {
+    let time = dayjs().format("MM-DD-YYYY hh:mm:ss A");
+    currentDay.innerHTML = time;
+  }, 1000);
+});
 
-fetch('https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-
-
-function input() {
-    var activityinput = $("#searchinput").val();
-    fetch('https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=' + activityinput, options)
-	.then(response => response.json())   
-    .then(function(response) {
-    var activityname = response[0].name;
-
-    var calories = response[0].calories_per_hour;
-    var caloriesEl = $('<p>');
-    caloriesEl.text("Calories per hour: " + calories);
-
-    finaloutput.text("Name: " + activityname);
-    finaloutput.append(caloriesEl);
-    
-
-    
-    })
-    .catch(err => console.error(err));
+function sConsole(event) {
+  event.preventDefault();
+  var data = document.getElementById("caloriesIntake");
+  if (isNaN(data.value)) {
+    //checks for non numerical values and rejects them
+    alert("Please enter a valid number.");
+  } else {
+    console.log(data.value);
+  }
 }
-
-
-searchbtn.on("click", input);
