@@ -33,21 +33,37 @@ async function fetchData(endpoint) {
     };
 
 
-    const data = fetchData('/bmi');
-    console.log(data);
-    const weight;
-    const height;
+
 
     document.getElementById('fetch-data-button').addEventListener('click', function () {
         const weight = document.getElementById('weight').value;
         const height = document.getElementById('height').value;
         fetchData(weight, height).then(data => {
             console.log(data);
+
+            // print keys here: bmi, health, healthy_bmi_range
+            then((response) => response.json())
+                .then(function (response) {
+                    response.forEach((e) => {
+                        var templateStringBMI =
+                            '<article class="card1">' < p >
+                            "BMI: " +
+                            e.bmi +
+                            "</p><p>" +
+                            "Health: " +
+                            e.health +
+                            "</p><p>" +
+                            "Healthy BMI Range: " +
+                            e.healthy_bmi_range +
+                            "</p></article>";
+                        $("#output").append(templateStringBMI);
+                    });
+                });
         });
     });
 
     async function fetchData(weight, height) {
-        const url = `${API_URL}/bmi?weight=${weight}&height=${height}`
+        const url = `${API_URL}bmi?weight=${weight}&height=${height}`
         const options = {
             method: 'GET',
             headers: {
@@ -62,5 +78,17 @@ async function fetchData(endpoint) {
         } catch (error) {
             console.error(error)
         }
+        console.log(data);
     };
-}
+};
+
+const data = fetchData('bmi');
+console.log(data);
+
+        // {
+        //     "info": {
+        //         "bmi": 24.54,
+        //             "health": "Normal Weight",
+        //                 "healthy_bmi_range": "18.5-24.9"
+        //     }
+        // }
