@@ -76,7 +76,7 @@ function input() {
   var activityinput = $("#searchinput").val();
   fetch(
     "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?type=" +
-      activityinput,
+    activityinput,
     options
   ) //"&muscle=" + muscleinput
     .then((response) => response.json())
@@ -107,3 +107,5 @@ function input() {
     .catch((err) => console.error(err));
 }
 searchbtn.on("click", input);
+
+
