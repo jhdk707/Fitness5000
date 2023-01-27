@@ -1,11 +1,17 @@
-/* CSS Style sheet created on 1/23/2023 by the GO GIT'ERs 
+/*  CSS Style Sheet created by the Go Git'ers on 1/24/23
 
-Color Palette Used
+Color Palette Used 
+------------------>>>
+Brown Sugar #9E6240
+Tumbleweed #DEA47E
+Vermillion #CD4631 
+Eggshell #F8F2DC  
+Air Superiorty Blue #81ADC8  */
 
-Brown Sugar #9e6240
-Tumbleweed #Dea47e
-Vermillion #cd4631
-Eggshell #f8f2dc
-Air Superiority Blue #81adc8
+* {
+  background-color: #f8f2dc;
+}
 
-*/
+.button.is-primary {
+  background-color: #cd4631;
+}

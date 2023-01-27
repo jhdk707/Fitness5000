@@ -6,15 +6,54 @@ document.addEventListener("DOMContentLoaded", function () {
     currentDay.innerHTML = time;
   }, 1000);
 });
+
+$(function () {
+  $("#input").selectmenu();
+});
+var salert = $("#alert");
+finaloutput = "";
+salert.on("click", function () {
+  Swal.fire("Welcome!");
+});
+
+var totalCalories = 0;
 function sConsole(event) {
   event.preventDefault();
   var data = document.getElementById("caloriesIntake");
   if (isNaN(data.value)) {
     //checks for non numerical values and rejects them
-    alert("Please enter a valid number.");
+    alert("Please enter a valid number");
   } else {
     console.log(data.value);
   }
+  // adding up calories
+  totalCalories += parseInt(data.value);
+  localStorage.setItem("totalCalories", totalCalories);
+  data.value = "";
+  var totalCaloriesEl = document.querySelector("#total-calories");
+  totalCaloriesEl.textContent = "Total weekly calories: " + totalCalories;
+}
+function updateTotalCalories() {
+  var totalCaloriesEl = document.querySelector("#total-calories");
+  var total;
+  // getting exsiting calories
+  var existingTotalCalories = localStorage.getItem("totalCalories");
+  // checking existing total calories
+  if (existingTotalCalories == null) {
+    existingTotalCalories = 0;
+  }
+  // adding to existing total
+  var totalCalories = parseInt(existingTotalCalories) + parseInt(data.value);
+  // storing new total
+  localStorage.setItem("totalCalories", totalCalories);
+  // updating total calories on HTML
+  var totalCaloriesEl = document.querySelector("total-calories");
+  totalCaloriesEl.textContent = "Total weekly calories:" + totalCalories;
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    sConsole(event);
+    updateTotalCalories();
+  });
 }
 var searchbtn = $("#searchbutton");
 let activityinput = "";

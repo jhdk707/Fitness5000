@@ -5,25 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.34/dayjs.min.js"></script>
-    <title>Fitness</title>
+    <title>Fitness 5000</title>
 </head>
 <header class="title">Welcome to FITNESS 5000!!!
   <h1 class="greeting">Hello, USERNAME <!--placeholder for username--></h1>
   <span class="userName"></span>
   <h2 class="currentDay"></h2>
-</header>
+</header> 
  <main>
+  <button id="alert">Welcome</button>
+
   <div id= "searchbar">
-    <input type="text" class="input" id="searchinput" placeholder="Enter Activity"/>
-    <button class="btn" id="searchbutton">Search</button>
-</div>
-<div class= "container" id= "output">
-</div>
+    <fieldset>
+      <label for="input"></label>
+      <select name="input" id="searchinput">
+        <option>Enter Activity</option>
+        <option>Cardio</option>
+        <option>Olympic_Weightlifting</option>
+        <option>Plyometrics</option>
+        <option>Powerlifting</option>
+        <option>Strength</option>
+        <option>Stretching</option>
+        <option>Strongman</option>
+      </select>
+      </selectmenu>
+    </ul>
+    <button class="button is-primary" id="searchbutton">Search</button>
+    </div>
+    <div class= "container" id= "output">
+  </div>
   <form action="" id="form" onsubmit="sConsole(event)">
-     <input type="text" name="calorieCounter" id="caloriesIntake">
-     <button type="submit">Enter Calories</button>
+     <!--<input type="text" name="calorieCounter" id="caloriesIntake">-->
+     <input class="calorieIntake" type="text" placeholder="calorieCounter">
+     <button class="submit" type="submit" value="Submit Input">Submit</button>
+     <div id="total-calories"></div>
   </form>
  </main>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -33,5 +52,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.7.0/qs.min.js"></script>
 <!-- Import our javascript file -->
 <script src="./assets/script.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
