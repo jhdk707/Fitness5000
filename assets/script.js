@@ -19,7 +19,7 @@ salert.on("click", function () {
 var totalCalories = 0;
 function sConsole(event) {
   event.preventDefault();
-  var data = document.getElementById("caloriesIntake");
+  var data = document.querySelector(".caloriesIntake");
   if (isNaN(data.value)) {
     //checks for non numerical values and rejects them
     alert("Please enter a valid number");
@@ -31,7 +31,7 @@ function sConsole(event) {
   localStorage.setItem("totalCalories", totalCalories);
   data.value = "";
   var totalCaloriesEl = document.querySelector("#total-calories");
-  totalCaloriesEl.textContent = "Total weekly calories: " + totalCalories;
+  totalCaloriesEl.textContent = "Total weekly calories:" + totalCalories;
 }
 function updateTotalCalories() {
   var totalCaloriesEl = document.querySelector("#total-calories");
