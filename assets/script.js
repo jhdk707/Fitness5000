@@ -1,3 +1,18 @@
+$(document).ready(function () {
+  const { value: username } = Swal.fire({
+    title: "Enter a Username",
+    input: "text",
+    inputValidator: (value) => {
+      if (!value) {
+        return "You need to write something!";
+      }
+      var greeting = $("#greeting");
+      var greet1 = "<p>" + "Hello, " + `${value}` + "</p>";
+      greeting.append(greet1);
+    },
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Timer function to present local date and time in header
   const currentDay = document.querySelector(".currentDay");
@@ -31,7 +46,7 @@ function sConsole(event) {
   localStorage.setItem("totalCalories", totalCalories);
   data.value = "";
   var totalCaloriesEl = document.querySelector("#total-calories");
-  totalCaloriesEl.textContent = "Total weekly calories:" + totalCalories;
+  totalCaloriesEl.textContent = "Total weekly calories: " + totalCalories;
 }
 function updateTotalCalories() {
   var totalCaloriesEl = document.querySelector("#total-calories");
@@ -106,6 +121,50 @@ function input() {
     })
     .catch((err) => console.error(err));
 }
-searchbtn.on("click", input);
 
+searchbtn.on("click", (event) => {
+  event.preventDefault();
+  $("#output").empty();
+  input();
+});
+
+document
+  .getElementById("fetch-data-button")
+  .addEventListener("click", async function () {
+    const weight = document.getElementById("weight").value;
+    const height = document.getElementById("height").value;
+    const data = await fetchData(weight, height);
+    console.log(data);
+    data.forEach((e) => {
+      var templateStringBMI =
+        '<article class="card1">' <
+        p >
+        "BMI: " +
+          e.bmi +
+          "</p><p>" +
+          "Health: " +
+          e.health +
+          "</p><p>" +
+          "Healthy BMI Range: " +
+          e.healthy_bmi_range +
+          "</p></article>";
+      $("#output").append(templateStringBMI);
+    });
+  });
+async function fetchData(weight, height) {
+  const url = `${API_URL}bmi?weight=${weight}&height=${height}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": API_KEY,
+    },
+  };
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 

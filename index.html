@@ -12,52 +12,71 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.34/dayjs.min.js"></script>
   <title>Fitness 5000</title>
 </head>
-<header class="title">Welcome to FITNESS 5000!!!
-  <h1 class="greeting">Hello, USERNAME <!--placeholder for username--></h1>
-  <span class="userName"></span>
-  <h2 class="currentDay"></h2>
-</header>
-<main>
-  <button id="alert">Welcome</button>
 
-  <div id="searchbar">
-    <fieldset>
-      <label for="input"></label>
-      <select name="input" id="searchinput">
-        <option>Enter Activity</option>
-        <option>Cardio</option>
-        <option>Olympic_Weightlifting</option>
-        <option>Plyometrics</option>
-        <option>Powerlifting</option>
-        <option>Strength</option>
-        <option>Stretching</option>
-        <option>Strongman</option>
-      </select>
-      </selectmenu>
-      </ul>
-      <button class="button is-primary" id="searchbutton">Search</button>
+
+<body class ="container is-fluid">
+<!--Header Elements and Local Date & time-->
+<header class="is-mobile">
+  <h1 class="block title is-3 level-item has-text-centered">FITNESS 5000</h1>
+  <br>
+  <h2 class="subtitle is-5 level-item has-text-centered" id= "greeting"><!--placeholder for username--></h2>
+ <!-- <div id= "greeting"></div> -->
+  <h3 class="currentDay my-custom-class subtitle is-5 level-item has-text-centered"></h3>
+</header> 
+ <main>
+ <!--Exercise Search Drop-Down Menu -->
+ <div class="columns" id="searchbar">
+  <div class="column is-half">
+    <div class="field">
+      <div class="control">
+        <div class="select">
+          <select id="searchinput">
+            <option>Enter Activity</option>
+            <option>Cardio</option>
+            <option>Olympic_Weightlifting</option>
+            <option>Plyometrics</option>
+            <option>Powerlifting</option>
+            <option>Strength</option>
+            <option>Stretching</option>
+            <option>Strongman</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="container" id="output">
+  <div class="column is-half">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary is-small" id="searchbutton">Search</button>
+      </div>
+    </div>
+
   </div>
+  <!--Calorie Counter and Output Field-->
   <form action="" id="form" onsubmit="sConsole(event)">
-<<<<<<< HEAD
     <!--<input type="text" name="calorieCounter" id="caloriesIntake">-->
-    <input class="calorieIntake" type="text" placeholder="calorieCounter">
-    <button class="submit" type="submit" value="Submit Input">Submit</button>
+    <input class="caloriesIntake" name ="calorieCounter" type="text" placeholder="Enter Calories Here">
+    <button class="button is-primary is-small" type="submit" value="Submit Input">Submit</button>
     <div id="total-calories"></div>
-=======
-     <!--<input type="text" name="calorieCounter" id="caloriesIntake">-->
-     <input class="caloriesIntake" name ="calorieCounter" type="text" placeholder="Enter Calories Here">
-     <button class="submit" type="submit" value="Submit Input">Submit</button>
-     <div id="total-calories"></div>
->>>>>>> 43a07501cdada6f3b163c58fd2ea333dafe164b8
-  </form>
+ </form>
+</div>
+<!--Exercises Output-->
+<div class="container is-fluid" id="output"></div>
+
+
+ </main>
+
+<footer class="footer is-small">
   <label for="weight">Weight:</label>
+
   <input type="number" id="weight" name="weight">
   <label for="height">Height:</label>
   <input type="number" id="height" name="height">
   <button id="fetch-data-button">Calculate BMI</button>
-</main>
+
+  <article class=""></article>
+ </footer>
+ <!--Script Sources-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- Import axios library -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
