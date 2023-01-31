@@ -126,3 +126,43 @@ searchbtn.on("click", (event) => {
   $("#output").empty();
   input();
 });
+
+document
+  .getElementById("fetch-data-button")
+  .addEventListener("click", async function () {
+    const weight = document.getElementById("weight").value;
+    const height = document.getElementById("height").value;
+    const data = await fetchData(weight, height);
+    console.log(data);
+    data.forEach((e) => {
+      var templateStringBMI =
+        '<article class="card1">' <
+        p >
+        "BMI: " +
+          e.bmi +
+          "</p><p>" +
+          "Health: " +
+          e.health +
+          "</p><p>" +
+          "Healthy BMI Range: " +
+          e.healthy_bmi_range +
+          "</p></article>";
+      $("#output").append(templateStringBMI);
+    });
+  });
+async function fetchData(weight, height) {
+  const url = `${API_URL}bmi?weight=${weight}&height=${height}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": API_KEY,
+    },
+  };
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
