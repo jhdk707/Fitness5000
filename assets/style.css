@@ -10,7 +10,8 @@ Air Superiorty Blue #81ADC8  */
 
 body {
   background-color: #f8f2dc;
-  min-width: ;
+  min-width: 400px;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .button.is-primary {
@@ -22,5 +23,24 @@ footer {
   color: #cd4631;
 }
 
-@media only screen (min-width: 375px) {
+h2 {
+  color: #cd4631;
+  font-size: larger;
+  font-weight: bolder;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+p {
+  color: #9e6240;
+  font-size: small;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.currentDay {
+  color: #9e6240;
+  font-weight: bolder;
+}
+
+h4 {
+  color: #cd4631;
 }

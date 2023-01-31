@@ -1,3 +1,8 @@
+var displayexerciseid = 0;
+var back = $("#back");
+var next = $("#next");
+var ebuttons = $("#numberbutton");
+
 $(document).ready(function () {
   const { value: username } = Swal.fire({
     title: "Enter a Username",
@@ -7,7 +12,7 @@ $(document).ready(function () {
         return "You need to write something!";
       }
       var greeting = $("#greeting");
-      var greet1 = "<p>" + "Hello, " + `${value}` + "</p>";
+      var greet1 = "<h4>" + "Hello, " + `${value}` + "</h4>";
       greeting.append(greet1);
     },
   });
@@ -34,19 +39,30 @@ salert.on("click", function () {
 var totalCalories = 0;
 function sConsole(event) {
   event.preventDefault();
-  var data = document.querySelector(".caloriesIntake");
+  var data = document.querySelector("input[name='caloriesIntake']");
   if (isNaN(data.value)) {
     //checks for non numerical values and rejects them
-    alert("Please enter a valid number");
+    var modal = document.querySelector(".modal");
+    modal.classList.add("is-active");
   } else {
     console.log(data.value);
   }
+  var closeButton = document.querySelector(".delete");
+  var okButton = document.querySelector(".modal-card-foot .button");
+
+  closeButton.addEventListener("click", function () {
+    modal.classList.remove("is-active");
+  });
+
+  okButton.addEventListener("click", function () {
+    modal.classList.remove("is-active");
+  });
   // adding up calories
   totalCalories += parseInt(data.value);
   localStorage.setItem("totalCalories", totalCalories);
   data.value = "";
   var totalCaloriesEl = document.querySelector("#total-calories");
-  totalCaloriesEl.textContent = "Total weekly calories: " + totalCalories;
+  totalCaloriesEl.textContent = "Total daily calories: " + totalCalories;
 }
 function updateTotalCalories() {
   var totalCaloriesEl = document.querySelector("#total-calories");
@@ -63,7 +79,7 @@ function updateTotalCalories() {
   localStorage.setItem("totalCalories", totalCalories);
   // updating total calories on HTML
   var totalCaloriesEl = document.querySelector("total-calories");
-  totalCaloriesEl.textContent = "Total weekly calories:" + totalCalories;
+  totalCaloriesEl.textContent = "Total Daily calories:" + totalCalories;
   document.getElementById("form").addEventListener("submit", function (event) {
     event.preventDefault();
     sConsole(event);
@@ -96,35 +112,52 @@ function input() {
   ) //"&muscle=" + muscleinput
     .then((response) => response.json())
     .then(function (response) {
-      response.forEach((e) => {
+      for (var i = 0; i < 10; i++) {
         var templateString =
-          '<article class="card"><h2>' +
-          e.name +
-          "</h2><p>" +
+          '<article class="card is-hidden" id="exercise-' +
+          i +
+          '"><h2>' +
+          response[i].name +
+          "</h2><h3>" +
           "Instructions: " +
-          e.instructions +
-          "</p><p>" +
+          response[i].instructions +
+          "</h3><p>" +
           "Muscle Group: " +
-          e.muscle +
+          response[i].muscle +
           "</p><p>" +
           "Equipment: " +
-          e.equipment +
+          response[i].equipment +
           "</p></article>";
         $("#output").append(templateString);
-        //var activityname = e.name;
-        //var instructions = e.instructions;
-        //var instructionsEl = $('<p>');
-        //instructionsEl.text("Instructions: " + instructions);
-        //finaloutput.text("Name: " + activityname);
-        //finaloutput.append(instructionsEl);
-      });
-    })
-    .catch((err) => console.error(err));
+        $("#exercise-0").removeClass("is-hidden");
+      }
+    });
 }
 searchbtn.on("click", (event) => {
+  $("#back").removeClass("is-hidden");
+  $("#next").removeClass("is-hidden");
   event.preventDefault();
   $("#output").empty();
   input();
+});
+
+next.on("click", (event) => {
+  event.preventDefault();
+  $("#exercise-" + displayexerciseid).addClass("is-hidden");
+  displayexerciseid++;
+  if (displayexerciseid === 10) {
+    displayexerciseid = 0;
+  }
+  $("#exercise-" + displayexerciseid).removeClass("is-hidden");
+});
+back.on("click", (event) => {
+  event.preventDefault();
+  $("#exercise-" + displayexerciseid).addClass("is-hidden");
+  if (displayexerciseid === 0) {
+    displayexerciseid = 10;
+  }
+  displayexerciseid--;
+  $("#exercise-" + displayexerciseid).removeClass("is-hidden");
 });
 
 document
