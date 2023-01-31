@@ -8,10 +8,16 @@ Vermillion #CD4631
 Eggshell #F8F2DC  
 Air Superiorty Blue #81ADC8  */
 
-* {
+body {
   background-color: #f8f2dc;
+  min-width: ;
 }
 
 .button.is-primary {
   background-color: #cd4631;
+}
+
+footer {
+  background-color: #81adc8;
+  color: #cd4631;
 }
