@@ -2,7 +2,11 @@ Fitness5000 created on 1/19/2023 by Isaiah James, Jesse Hudak, Nate James, Jonat
 
 # Fitness5000
 
-A web application designed to help acheive fitness goals in a week by week program
+Our web application is designed to help clients acheive their fitness goals on a daily basis.
+When a user opens the app they will be prompted to fill in their name, which will be stored at the top of the web page with the current date and time.
+After submitting your name it is encouraged that a client fill in their current height & weight. This will provide the client with their current BMI metric.
+Whether a client wants to gain or loose weight they will be able to use the calorie tracker to their advantage. They must enter numbers, if they enter any other character a modal will pop up asking the client to submit a valid number.
+Moving over to the excerise portion, We have provided clients with a drop down menu to choose what style of excerise they would like to preform. This drop down menu is powered by an API, that stores all of the exercises. After a client selects the style of excerise they would like to preform they press search and will be provided with an excerise. Clients will be shown a single excerise at a time and our API breaks down how the excerise should be preformed, specificies what if any equipment is needed and for some excerises the average amount of calories burned per hour. Clients can either choose to do the exericise that is displayed or they can skip around and find one that interests them most.
 
 ## User Story
 
@@ -23,7 +27,11 @@ WHEN a user opens the app
 THEN they can track their daily caloric intake
 WHEN I update my calorie intake
 THEN the app tracks amount consumed for the day / week
-```
+
+RESOURCES
+https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/
+CSS styled using Bulma.io
+
 
 ## Mock-Up
 
@@ -31,3 +39,4 @@ The following image shows the web application's appearance and functionality:
 
 djsiaojdoisjad
 testing this out
+```
