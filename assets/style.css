@@ -8,27 +8,46 @@ Vermillion #CD4631
 Eggshell #F8F2DC  
 Air Superiorty Blue #81ADC8  */
 
+html {
+  background: url(pexels-photo-3556117.jpeg) no-repeat center center fixed #DEA47E;
+  background-size: cover;
+  height: auto;
+  overflow: hidden;
+  padding: 10px;
+  width: auto;
+}
+
+
 body {
-  background-color: #f8f2dc;
   height: 100%;
   min-width: 400px;
   font-family: "IBM Plex Mono", monospace;
+  margin: 32px;
+}
+
+header {
+  word-wrap: break-word;
 }
 
 .main-content {
-  min-height: calc(100% - 40px);
-  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .button.is-primary {
   background-color: #cd4631;
 }
 
+h1 {
+  display: flex;
+  justify-content: space-between;
+}
+
 footer {
   background-color: #81adc8;
   color: #cd4631;
-  height: 40px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -54,3 +73,4 @@ p {
 h4 {
   color: #cd4631;
 }
+
