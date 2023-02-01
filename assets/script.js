@@ -2,7 +2,10 @@ var displayexerciseid = 0;
 var back = $("#back");
 var next = $("#next");
 var ebuttons = $("#numberbutton");
+var weight;
+var height;
 
+// Welcome Modal with Name Input
 $(document).ready(function () {
   const { value: username } = Swal.fire({
     title: "Enter a Username",
@@ -18,8 +21,8 @@ $(document).ready(function () {
   });
 });
 
+// Timer function to present local date and time in header, loads on ready
 document.addEventListener("DOMContentLoaded", function () {
-  // Timer function to present local date and time in header
   const currentDay = document.querySelector(".currentDay");
   setInterval(() => {
     let time = dayjs().format("MM-DD-YYYY hh:mm:ss A");
@@ -27,15 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
-$(function () {
-  $("#input").selectmenu();
-});
-var salert = $("#alert");
-finaloutput = "";
-salert.on("click", function () {
-  Swal.fire("Welcome!");
-});
-
+// Calorie Counter Function
 var totalCalories = 0;
 function sConsole(event) {
   event.preventDefault();
@@ -109,7 +104,7 @@ function input() {
     "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?type=" +
       activityinput,
     options
-  ) //"&muscle=" + muscleinput
+  )
     .then((response) => response.json())
     .then(function (response) {
       for (var i = 0; i < 10; i++) {
@@ -160,42 +155,55 @@ back.on("click", (event) => {
   $("#exercise-" + displayexerciseid).removeClass("is-hidden");
 });
 
+// BMI Calculator in footer
 document
   .getElementById("fetch-data-button")
   .addEventListener("click", async function () {
-    const weight = document.getElementById("weight").value;
-    const height = document.getElementById("height").value;
-    const data = await fetchData(weight, height);
+    $("#outputBmi").empty();
+    var weightKG = document.getElementById("weight").value;
+    var heightCM = document.getElementById("height").value;
+    var weight = parseInt(weightKG) / 2.205;
+    var height = parseInt(heightCM) * 2.54;
+    var data = await fetchData(weight, height);
     console.log(data);
-    data.forEach((e) => {
-      var templateStringBMI =
-        '<article class="card1">' <
-        p >
-        "BMI: " +
-          e.bmi +
-          "</p><p>" +
-          "Health: " +
-          e.health +
-          "</p><p>" +
-          "Healthy BMI Range: " +
-          e.healthy_bmi_range +
-          "</p></article>";
-      $("#output").append(templateStringBMI);
-    });
   });
 async function fetchData(weight, height) {
-  const url = `${API_URL}bmi?weight=${weight}&height=${height}`;
   const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "c102ffcecemsh31fee262b485c63p1b464fjsn535ea8fa7b4e",
+      "X-RapidAPI-Host": "mega-fitness-calculator1.p.rapidapi.com",
+    },
+  };
+  fetch(
+    `https://mega-fitness-calculator1.p.rapidapi.com/bmi?weight=${weight}&height=${height}`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      var BMIel = document.createElement("p");
+      BMIel.textContent = "Your BMI: " + data.info.bmi;
+      var HEALTHel = document.createElement("p");
+      HEALTHel.textContent = "Health Category: " + data.info.health;
+      var RANGE = document.createElement("p");
+      RANGE.textContent = "Healthy BMI Range: " + data.info.healthy_bmi_range;
+      var card = document.createElement("article");
+      card.setAttribute("class", "card1");
+      var output = document.querySelector("#outputBmi");
+      card.append(BMIel, HEALTHel, RANGE);
+      output.append(card);
+      console.log(data);
+    })
+    .catch((err) => console.error(err));
+}
+var API_URL = "https://mega-fitness-calculator1.p.rapidapi.com/";
+var API_KEY = "c102ffcecemsh31fee262b485c63p1b464fjsn535ea8fa7b4e";
+async function fetchAllData(endpoint) {
+  var url = `${API_URL}${endpoint}`;
+  var options = {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": API_KEY,
     },
   };
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
 }

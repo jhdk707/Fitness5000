@@ -10,8 +10,14 @@ Air Superiorty Blue #81ADC8  */
 
 body {
   background-color: #f8f2dc;
+  height: 100%;
   min-width: 400px;
   font-family: "IBM Plex Mono", monospace;
+}
+
+.main-content {
+  min-height: calc(100% - 40px);
+  padding-bottom: 40px;
 }
 
 .button.is-primary {
@@ -21,6 +27,10 @@ body {
 footer {
   background-color: #81adc8;
   color: #cd4631;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 h2 {
