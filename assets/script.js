@@ -162,9 +162,10 @@ document
   .addEventListener("click", async function () {
     $("#outputBmi").empty();
     var weightKG = document.getElementById("weight").value;
-    var heightCM = document.getElementById("height").value;
+    var heightFT = document.getElementById("heightft").value;
+    var heightCM = document.getElementById("inches").value;
     var weight = parseInt(weightKG) / 2.205;
-    var height = parseInt(heightCM) * 2.54;
+    var height = parseInt(heightCM) * 2.54 + parseInt(heightFT) * 30.48;
     var data = await fetchData(weight, height);
     console.log(data);
   });

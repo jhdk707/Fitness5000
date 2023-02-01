@@ -18,6 +18,7 @@ html {
 }
 
 
+
 body {
   height: 100%;
   min-width: 400px;
@@ -27,6 +28,19 @@ body {
 
 header {
   word-wrap: break-word;
+  margin: 10px;
+}
+
+h4 {
+  color:#F8F2DC;
+  font-size: large;
+  font-weight: bold;
+}
+
+#total-calories {
+  display: inline-block;
+  margin-left: 10px;
+  color:#F8F2DC;
 }
 
 .main-content {
@@ -46,7 +60,7 @@ h1 {
 
 footer {
   background-color: #81adc8;
-  color: #cd4631;
+  color: #F8F2DC;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -60,8 +74,9 @@ h2 {
 }
 
 p {
-  color: #9e6240;
+  color: #F8F2DC;
   font-size: small;
+  font-weight: bold;
   font-family: "IBM Plex Mono", monospace;
 }
 
@@ -70,7 +85,4 @@ p {
   font-weight: bolder;
 }
 
-h4 {
-  color: #cd4631;
-}
 
