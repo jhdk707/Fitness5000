@@ -102,7 +102,7 @@ function input() {
   var activityinput = $("#searchinput").val();
   fetch(
     "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?type=" +
-      activityinput,
+    activityinput,
     options
   )
     .then((response) => response.json())
@@ -128,6 +128,7 @@ function input() {
       }
     });
 }
+
 searchbtn.on("click", (event) => {
   $("#back").removeClass("is-hidden");
   $("#next").removeClass("is-hidden");
@@ -207,3 +208,4 @@ async function fetchAllData(endpoint) {
     },
   };
 }
+
