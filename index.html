@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="is-fluid" lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,28 +31,26 @@
   <body class="main-content is-fluid is-fullhd pt-5 pb-5">
     <!--Header Elements and Local Date & time-->
     <header class="is-large is-centered">
-      <h1 class="block title is-3 has-background-primary is-small">
-        <div class="level-left">FITNESS 5000</div>
-        <span class="column content has-text-centered is-small level is-capitalized" id="greeting"></span>
-        <span
-          class="currentDay my-custom-class subtitle is-5 level-right has-text-center"
-        ></span>
-      </h1>
+      <div class="columns block title is-3 has-background-primary is-small">
+        <h1 class="column level-left">FITNESS 5000</h1>
+        <div class="column is-small is-capitalized" id="greeting"></div>
+        <div
+          class="column currentDay my-custom-class subtitle is-5 level-right has-text-center"
+        ></div>
+      </div>
       <br />
       <h5
         class="box is-small content is-centered has-text-center has-background-primary is-capitalized"
       >
-        <div class="column content is-centered level-left">
-         <!-- <div id="greeting">
-          </div> -->
+        <div class="columns">
           <form
-            class="content is-centered  is-small column is-one-third level-right"
+            class="content is-centered is-small column is-one-third level-left"
             action=""
             id="form"
             onsubmit="sConsole(event)"
           >
             <!-- Calorie Counter and Output Field -->
-            <div class="field is-grouped level-right">
+            <div class="field is-grouped">
               <input
                 class="input is-small is-primary"
                 name="caloriesIntake"
@@ -71,6 +69,33 @@
               </div>
             </div> 
           </form>
+          <div class="column is-two-thirds level-right" id="searchbar">
+            <div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <div class="select is-small is-primary">
+                    <select id="searchinput">
+                      <option>Enter Activity</option>
+                      <option>Cardio</option>
+                      <option>Olympic_Weightlifting</option>
+                      <option>Plyometrics</option>
+                      <option>Powerlifting</option>
+                      <option>Strength</option>
+                      <option>Stretching</option>
+                      <option>Strongman</option>
+                    </select>
+                  </div>
+    
+                  <button
+                    class="button is-primary is-small is-responsive"
+                    id="searchbutton"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Modalfor alpha input into calorie intake -->
         <div class="modal">
@@ -90,39 +115,13 @@
         </div>
       </h5>
     </header>
-    <main class="columns is-multiline is mobile">
+    <main class="exerciseoutput columns is-mobile content is-centered">
       <!--Exercise Search Drop-Down Menu -->
-      <div class="column is-half" id="searchbar">
-        <div>
-          <div class="field is-grouped">
-            <div class="control">
-              <div class="select is-small is-primary">
-                <select id="searchinput">
-                  <option>Enter Activity</option>
-                  <option>Cardio</option>
-                  <option>Olympic_Weightlifting</option>
-                  <option>Plyometrics</option>
-                  <option>Powerlifting</option>
-                  <option>Strength</option>
-                  <option>Stretching</option>
-                  <option>Strongman</option>
-                </select>
-              </div>
-
-              <button
-                class="button is-primary is-small is-responsive"
-                id="searchbutton"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <br>
       <br>
       <!--Exercises Output-->
-      <div class="columns is-centered">
+      <hero class="columns is-fluid is-centered">
         <div class="column">
           <div
             class="container pt-5 pb-5 fixed width has-background-primary"
@@ -141,10 +140,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </hero>
     </main>
 
-    <footer class="content has-text-centered is-large is-centered">
+    <footer class="is-centered is-responsive">
+      <div class="content is-centered has-text-centered"> 
       <p class="text" id="outputBmi">Your Bmi:</p>
       <div class="content has-text-centered">
         <label for="weight">Weight (in lbs.):</label>
@@ -156,6 +156,7 @@
         <button id="fetch-data-button">Calculate BMI</button><br /><br />
         <article class=""></article>
       </div>
+    </div>
     </footer>
     <!--Script Sources-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
