@@ -30,6 +30,7 @@ THEN the app tracks amount consumed for the day / week
 
 RESOURCES
 https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/
+https://rapidapi.com/apininjas/api/exercises-by-api-ninjas/
 CSS styled using Bulma.io
 
 
@@ -37,6 +38,9 @@ CSS styled using Bulma.io
 
 The following image shows the web application's appearance and functionality:
 
-djsiaojdoisjad
-testing this out
+![alt text](https://github.com/jhdk707/Fitness5000/blob/main/assets/fitness5000screencap.png)
 ```
+
+## Application Link
+
+https://jhdk707.github.io/Fitness5000/
