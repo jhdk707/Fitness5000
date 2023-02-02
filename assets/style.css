@@ -9,14 +9,13 @@ Eggshell #F8F2DC
 Air Superiorty Blue #81ADC8  */
 
 html {
-  background: url(pexels-photo-3556117.jpeg) no-repeat center center fixed #DEA47E;
+  background: url(pexels-photo-3556117.jpeg) no-repeat center center fixed
+    #dea47e;
   background-size: cover;
   height: auto;
   padding: 10px;
   width: auto;
 }
-
-
 
 body {
   height: 100%;
@@ -31,7 +30,7 @@ header {
 }
 
 h4 {
-  color:#F8F2DC;
+  color: #f8f2dc;
   font-size: large;
   font-weight: bold;
   text-align: center;
@@ -40,7 +39,7 @@ h4 {
 #total-calories {
   display: inline-block;
   margin-left: 10px;
-  color:#F8F2DC;
+  color: #f8f2dc;
 }
 
 .main-content {
@@ -50,7 +49,7 @@ h4 {
 }
 
 .exerciseoutput.content {
-margin-bottom: 300px;
+  margin-bottom: 300px;
 }
 
 .button.is-primary {
@@ -64,7 +63,7 @@ h1 {
 
 footer {
   background-color: #81adc8;
-  color: #F8F2DC;
+  color: #f8f2dc;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -79,13 +78,13 @@ h2 {
   font-family: "IBM Plex Mono", monospace;
 }
 
-#exercise-6 > p:nth-child(3),
-#exercise-6 > p:nth-child(4){
-  color:#cd4631;
+#exercise-0 > p:nth-child(3),
+#exercise-0 > p:nth-child(4) {
+  color: #cd4631;
 }
 
 p {
-  color: #F8F2DC;
+  color: #f8f2dc;
   font-size: small;
   font-weight: bold;
   font-family: "IBM Plex Mono", monospace;
@@ -96,5 +95,3 @@ p {
   font-weight: bolder;
   text-align: right;
 }
-
-
