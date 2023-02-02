@@ -79,7 +79,8 @@ h2 {
   font-family: "IBM Plex Mono", monospace;
 }
 
-article.p{
+#exercise-6 > p:nth-child(3),
+#exercise-6 > p:nth-child(4){
   color:#cd4631;
 }
 
